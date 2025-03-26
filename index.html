@@ -31,13 +31,14 @@
             }
         }
     </script>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D77V60J4QG"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-D77V60J4QG');
     </script>
 </head>
 <body class="bg-apple-light dark:bg-apple-dark text-apple-dark dark:text-white min-h-screen flex flex-col">
@@ -61,40 +62,10 @@
     <main class="flex-grow container mx-auto px-4 py-8">
         <section id="game" class="mb-12">
             <h2 class="text-2xl md:text-3xl font-bold mb-6 text-apple-purple">Play Monster Survivors Online</h2>
-            <div class="w-full rounded-lg overflow-hidden shadow-xl bg-apple-dark aspect-video mb-6 relative">
-                <div id="game-container" class="w-full h-full">
-                    <iframe id="game-frame" 
-                            src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
-                            class="w-full h-full border-0" 
-                            allowfullscreen></iframe>
-                </div>
-                <div id="game-overlay" class="hidden absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center">
-                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md mx-4">
-                        <h3 class="text-xl font-bold mb-4 text-apple-red">Game Loading Tips</h3>
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-center">
-                                <span class="text-apple-green mr-2">✓</span>
-                                If you see an AdBlock message, please:
-                                <ol class="ml-6 mt-2 space-y-1">
-                                    <li>1. Disable your ad blocker for this site</li>
-                                    <li>2. Refresh the page</li>
-                                    <li>3. Click the "Play" button again</li>
-                                </ol>
-                            </li>
-                            <li class="flex items-center">
-                                <span class="text-apple-green mr-2">✓</span>
-                                For the best experience, use Chrome, Firefox, or Edge
-                            </li>
-                            <li class="flex items-center">
-                                <span class="text-apple-green mr-2">✓</span>
-                                Make sure JavaScript is enabled
-                            </li>
-                        </ul>
-                        <button id="close-overlay" class="mt-4 bg-apple-blue text-white px-4 py-2 rounded hover:bg-opacity-90">
-                            Got it, let's play!
-                        </button>
-                    </div>
-                </div>
+            <div class="w-full rounded-lg overflow-hidden shadow-xl bg-apple-dark aspect-video mb-6">
+                <iframe src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
+                        class="w-full h-full border-0" 
+                        allowfullscreen></iframe>
             </div>
             <div class="bg-white dark:bg-apple-dark rounded-lg p-4 shadow-md border border-gray-200 dark:border-gray-700">
                 <p class="text-sm text-apple-gray">
@@ -198,38 +169,6 @@
                 });
             });
         });
-
-        // Game overlay handling
-        const overlay = document.getElementById('game-overlay');
-        const closeButton = document.getElementById('close-overlay');
-        const gameFrame = document.getElementById('game-frame');
-
-        // Show overlay on page load
-        window.addEventListener('load', () => {
-            overlay.classList.remove('hidden');
-        });
-
-        // Close overlay when button is clicked
-        closeButton.addEventListener('click', () => {
-            overlay.classList.add('hidden');
-        });
-
-        // Handle iframe errors
-        gameFrame.addEventListener('error', () => {
-            overlay.classList.remove('hidden');
-        });
-
-        // Check for AdBlock message periodically
-        setInterval(() => {
-            try {
-                const iframeDoc = gameFrame.contentDocument || gameFrame.contentWindow.document;
-                if (iframeDoc.body.innerText.includes('Please disable AdBlock')) {
-                    overlay.classList.remove('hidden');
-                }
-            } catch (e) {
-                // Cross-origin error, ignore
-            }
-        }, 5000);
     </script>
 </body>
 </html> 
